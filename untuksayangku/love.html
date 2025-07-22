@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Fikra 💘 Marsya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(to bottom, #ffd6e8, #fff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .emoji {
+      font-size: 3em;
+      margin: 10px;
+      animation: floatEmoji 5s infinite ease-in-out;
+    }
+
+    @keyframes floatEmoji {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #822659;
+      margin: 20px;
+      max-width: 500px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      background-color: #ff4da6;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff4da6;
+      transition: 0.3s;
+      animation: fadeIn 4s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #ff1a8c;
+      box-shadow: 0 0 25px #ff1a8c;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 4s ease-out forwards;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -10px;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(45deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-300px) scale(2) rotate(45deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .names {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #cc0066;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji">💑</div>
+  <h1>Fikra 💘 Marsya</h1>
+  <p>
+    Dua hati yang berbeda tapi saling melengkapi.<br>
+    Bersama kamu, Marsya, hari-hariku jadi lebih indah. 🌸<br>
+    Aku sayang kamu, dari hati terdalam 😘
+  </p>
+
+  <button onclick="showHearts()">Klik untuk lihat isi hatiku 💕</button>
+
+  <div class="names">💖 Fikra & Marsya Forever 💖</div>
+
+  <script>
+    function showHearts() {
+      for (let i = 0; i < 25; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = Math.random() * window.innerHeight + 'px';
+        heart.style.background = randomColor();
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+      }
+      alert("Marsya, kamu itu segalanya buat Fikra ❤️");
+    }
+
+    function randomColor() {
+      const colors = ['#ff4da6', '#ff3399', '#e60073', '#cc0066', '#ff99cc'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+
+</body>
+</html>
